@@ -55,7 +55,7 @@ fun BusinessCard(modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.SpaceEvenly,
         modifier = modifier
             .fillMaxSize()
-            .padding(24.dp)
+            .background(Color(0xFFd7eed7))
     ) {
         Spacer(modifier = Modifier.weight(1f))
         PersonalInfo(fullName = "Bryan Armijos", title = "Android Developer")
@@ -76,7 +76,7 @@ fun PersonalInfo(fullName: String, title: String, modifier: Modifier = Modifier)
             contentDescription = null,
             modifier = Modifier
                 .height(100.dp)
-                .background(Color.Cyan)
+                .background(Color(0xFF002e3b))
         )
         Text(
             text = fullName,
@@ -85,7 +85,8 @@ fun PersonalInfo(fullName: String, title: String, modifier: Modifier = Modifier)
         )
         Text(
             text = title,
-            fontWeight = FontWeight.Bold
+            fontWeight = FontWeight.Bold,
+            color = Color(0xFF007c3b)
         )
     }
 }
@@ -95,7 +96,7 @@ fun ContactInfo(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .padding(bottom = 24.dp),
+            .padding(bottom = 48.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -117,7 +118,8 @@ fun ContactInfoItem(content: String, icon: ImageVector, modifier: Modifier = Mod
         Icon(
             imageVector = icon,
             contentDescription = null,
-            modifier = Modifier.size(20.dp)
+            modifier = Modifier.size(20.dp),
+            tint = Color(0xFF008b4f)
         )
         Text(
             text = content,

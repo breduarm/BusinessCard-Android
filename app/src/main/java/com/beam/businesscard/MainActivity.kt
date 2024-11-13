@@ -23,12 +23,12 @@ import androidx.compose.material.icons.rounded.Email
 import androidx.compose.material.icons.rounded.Phone
 import androidx.compose.material.icons.rounded.Share
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -57,7 +57,7 @@ fun BusinessCard(modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.SpaceEvenly,
         modifier = modifier
             .fillMaxSize()
-            .background(Color(0xFFd7eed7))
+            .background(MaterialTheme.colorScheme.background)
     ) {
         Spacer(modifier = Modifier.weight(1f))
         PersonalInfo(fullName = "Bryan Armijos", title = "Android Developer")
@@ -77,7 +77,7 @@ fun PersonalInfo(fullName: String, title: String, modifier: Modifier = Modifier)
             modifier = Modifier
                 .width(100.dp)
                 .height(110.dp)
-                .background(Color(0xFF002e3b), shape = RoundedCornerShape(16.dp)),
+                .background(MaterialTheme.colorScheme.surface, shape = RoundedCornerShape(16.dp)),
             contentAlignment = Alignment.Center
         ) {
             Image(
@@ -94,7 +94,7 @@ fun PersonalInfo(fullName: String, title: String, modifier: Modifier = Modifier)
         Text(
             text = title,
             fontWeight = FontWeight.Bold,
-            color = Color(0xFF007c3b)
+            color = MaterialTheme.colorScheme.secondary
         )
     }
 }
@@ -127,7 +127,7 @@ fun ContactInfoItem(content: String, icon: ImageVector, modifier: Modifier = Mod
             imageVector = icon,
             contentDescription = null,
             modifier = Modifier.size(20.dp),
-            tint = Color(0xFF008b4f)
+            tint = MaterialTheme.colorScheme.tertiary
         )
         Text(
             text = content,

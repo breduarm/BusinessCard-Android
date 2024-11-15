@@ -9,6 +9,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -55,6 +56,7 @@ class MainActivity : ComponentActivity() {
 fun BusinessCard(modifier: Modifier = Modifier) {
     Column(
         verticalArrangement = Arrangement.SpaceEvenly,
+        horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
@@ -69,16 +71,16 @@ fun BusinessCard(modifier: Modifier = Modifier) {
 @Composable
 fun PersonalInfo(fullName: String, title: String, modifier: Modifier = Modifier) {
     Column(
-        modifier = modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = Arrangement.Center,
+        modifier = modifier.fillMaxWidth(),
     ) {
         Box(
+            contentAlignment = Alignment.Center,
             modifier = Modifier
                 .width(100.dp)
                 .height(110.dp)
-                .background(MaterialTheme.colorScheme.surface, shape = RoundedCornerShape(16.dp)),
-            contentAlignment = Alignment.Center
+                .background(MaterialTheme.colorScheme.surface, shape = RoundedCornerShape(16.dp))
         ) {
             Image(
                 painter = painterResource(id = R.drawable.android_logo),
@@ -102,11 +104,11 @@ fun PersonalInfo(fullName: String, title: String, modifier: Modifier = Modifier)
 @Composable
 fun ContactInfo(modifier: Modifier = Modifier) {
     Column(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(bottom = 48.dp),
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier
+            .width(IntrinsicSize.Max)
+            .padding(bottom = 48.dp)
     ) {
         ContactInfoItem(content = "+593 (98) 048 8810", icon = Icons.Rounded.Phone)
         ContactInfoItem(content = "@breduarm", icon = Icons.Rounded.Share)
@@ -117,23 +119,20 @@ fun ContactInfo(modifier: Modifier = Modifier) {
 @Composable
 fun ContactInfoItem(content: String, icon: ImageVector, modifier: Modifier = Modifier) {
     Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(vertical = 4.dp),
-        horizontalArrangement = Arrangement.Center,
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = modifier.padding(vertical = 4.dp)
     ) {
         Icon(
             imageVector = icon,
             contentDescription = null,
+            tint = MaterialTheme.colorScheme.tertiary,
             modifier = Modifier.size(20.dp),
-            tint = MaterialTheme.colorScheme.tertiary
         )
         Text(
             text = content,
             fontSize = 14.sp,
             modifier = Modifier
-                .width(200.dp)
+                .weight(1f)
                 .padding(start = 16.dp)
         )
     }
